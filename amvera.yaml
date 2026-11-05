@@ -13,3 +13,4 @@ run:
   containerPort: "80"
   singleton: true
   zeroDowntime: false
+# Попытка сборки без кэша
