@@ -1,5 +1,4 @@
-# Используем официальный образ PHP 8.5 с Apache
-FROM php:8.5-apache
+FROM php:8.4-apache
 
 # Устанавливаем надежный установщик расширений PHP
 COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
