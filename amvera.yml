@@ -1,0 +1,11 @@
+meta:
+  environment: docker
+  toolchain:
+    name: docker
+    version: default
+
+build:
+  compose: compose.yaml
+
+run:
+  compose: compose.yaml
