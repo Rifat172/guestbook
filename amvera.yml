@@ -5,7 +5,7 @@ meta:
     version: default
 
 build:
-  compose: compose.yaml
+  dockerfile: Dockerfile
 
 run:
-  compose: compose.yaml
+  containerPort: 80
