@@ -2,10 +2,14 @@ meta:
   environment: docker
   toolchain:
     name: docker
-    version: default
-
 build:
   dockerfile: Dockerfile
-
+  skip: false
 run:
-  containerPort: 80
+  image: null
+  command: null
+  args: null
+  persistenceMount: /data
+  containerPort: "80"
+  singleton: true
+  zeroDowntime: false
