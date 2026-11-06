@@ -9,7 +9,7 @@ services:
       database:
         condition: service_healthy
     environment:
-      DATABASE_URL: "postgresql://app:!ChangeMe!@database:5432/app?serverVersion=16&charset=utf8"
+      DATABASE_URL: "postgresql://app:admin@database:5432/app?serverVersion=16&charset=utf8"
       APP_ENV: prod
       APP_SECRET: 512b9ad72dfa6405786a4220b3df20a1
 
@@ -17,7 +17,7 @@ services:
     image: postgres:16-alpine
     environment:
       POSTGRES_DB: app
-      POSTGRES_PASSWORD: !ChangeMe!
+      POSTGRES_PASSWORD: admin
       POSTGRES_USER: app
     healthcheck:
       test: ["CMD", "pg_isready", "-d", "app", "-U", "app"]

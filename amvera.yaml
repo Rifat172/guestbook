@@ -1,16 +1,19 @@
 meta:
-  environment: docker
+  environment: php
   toolchain:
-    name: docker
+    name: php
+    version: 8.3 # Укажите вашу версию PHP (например, 8.2 или 8.3)
+
 build:
-  dockerfile: Dockerfile
-  skip: false
+  # Amvera сама установит composer-зависимости, но для Symfony 
+  # полезно явно запустить очистку и прогрев кэша перед запуском
+  commands:
+    - php bin/console cache:clear --env=prod
+
 run:
-  image: null
-  command: null
-  args: null
-  persistenceMount: /data
-  containerPort: "80"
-  singleton: true
-  zeroDowntime: false
-# Попытка сборки без кэша
+  # Команда для запуска встроенного веб-сервера Amvera (обычно на базе Nginx/Apache)
+  # или указание корневой директории. Для Symfony это папка public/
+  persistence:
+    - mountPoint: /data
+      name: shared-data
+  command: php -S 0.0.0.0:$PORT -t public/
